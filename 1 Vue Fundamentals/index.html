@@ -10,6 +10,7 @@
             <p>Lucky Number is an {{luckyNumber%2 == 0 ? "even number" : "odd number"}}</p>
             <p>{{updateLuckyNumber()}}</p>
             <p>{{employee.name}} is {{employee.age}} years old</p>
+            <p>His salary is {{employee.salary}}</p>
         </div>
     </body>
     <script>
@@ -20,16 +21,17 @@
             setup() {
                 const message = "Hello Vue";
                 let luckyNumber = ref(7);
-                const employee = {
+                const employee = ref({
                     name: "John Doe",
                     title: "CEO",
                     salary: 100000,
                     age: 40,
-                }
+                });
 
                 function updateLuckyNumber() {
                     setTimeout(() => {
                         luckyNumber.value = 77;
+                        employee.value.salary = 80000;
                     }, 2000);
                 }
 
