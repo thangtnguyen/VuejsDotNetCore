@@ -13,13 +13,13 @@
         </div>
     </body>
     <script>
-        const {createApp} = Vue;
+        const {createApp, ref} = Vue;
 
         createApp({
 
             setup() {
                 const message = "Hello Vue";
-                const luckyNumber = 7;
+                let luckyNumber = ref(7);
                 const employee = {
                     name: "John Doe",
                     title: "CEO",
@@ -28,6 +28,8 @@
                 }
 
                 function getRandomLuckyNumber() {
+                    luckyNumber.value = Math.floor(Math.random() * 10) + 1;
+                    console.log(luckyNumber.value);
                     return Math.floor(Math.random() * 10) + 1;
                 }
 
